@@ -1,29 +1,38 @@
 # CrackIT
 
-
-CrackIT is an advanced password cracking tool designed for cybersecurity professionals and enthusiasts. It leverages powerful algorithms to generate and test password combinations efficiently, aiming to uncover weak passwords in various systems.
+CrackIT is a powerful tool designed to automate and simplify the process of security testing and vulnerability assessment.
 
 ## Features
 
-- **Custom Wordlist Generation**: Generate a tailored wordlist based on user-defined inputs, including names, pets, and keywords.
-  
-- **Advanced Hash Identification**: Automatically identify different hash types, enabling users to target specific hashing algorithms.
-  
-- **Optimized Cracking Algorithms**: Utilize various algorithms for enhanced speed and efficiency during the password cracking process.
-
-- **Support for Large Files**: Built to handle large wordlists, including the popular `rockyou.txt`, with Git Large File Storage (LFS) integration.
-
-- **Interactive Command-Line Interface**: User-friendly CLI for easily configuring cracking parameters and viewing progress in real-time.
-
-- **Extensive Logging and Reporting**: Generate detailed logs of cracking attempts, which can be exported for analysis.
+- **Automated Testing**: Streamlines security tests to identify potential vulnerabilities.
+- **Comprehensive Reporting**: Generates detailed reports to help you understand and fix issues.
+- **User-Friendly Interface**: Easy to navigate and use, even for those new to security testing.
+- **Extensible**: Add new tests and modules to customize it to your specific needs.
 
 ## Installation
 
-To set up CrackIT, follow these steps:
+Clone the repository:
 
-1. **Clone the repository**:
-   ```bash
-   git clone https://github.com/ItamaRoginsky/CrackIT.git
-   cd CrackIT
-2.```bash
-   pip install -r requirements.txt
+```bash
+git clone https://github.com/ItamaRoginsky/CrackIT.git
+cd CrackIT
+Install the required dependencies:
+
+bash
+
+Copy
+pip install -r requirements.txt
+Usage
+To run the tool, execute:
+
+bash
+
+Copy
+python crackit.py
+Contributing
+Feel free to fork the repository and submit pull requests. Please ensure your code adheres to our coding standards.
+
+License
+This project is licensed under the MIT License.
+
+
