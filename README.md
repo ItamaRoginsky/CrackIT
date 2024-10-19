@@ -22,5 +22,17 @@ To install the required Python packages for this project, run the following comm
 ```bash
 pip install -r requirements.txt
 ```
+Unzip rockyou.txt.gz:
 
+```bash
+gunzip rockyou.txt.gz
+```
+*Or any form of unzip.
+
+## Usage
+To start using CrackIT, run the main script:
+
+```bash
+python main.py
+```
 
