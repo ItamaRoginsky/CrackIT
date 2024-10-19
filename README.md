@@ -25,3 +25,4 @@ To set up CrackIT, follow these steps:
    ```bash
    git clone https://github.com/ItamaRoginsky/CrackIT.git
    cd CrackIT
+2. pip install -r requirements.txt
