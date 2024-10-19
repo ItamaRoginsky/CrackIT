@@ -35,4 +35,10 @@ To start using CrackIT, run the main script:
 ```bash
 python main.py
 ```
+## Contributing
+Feel free to fork the repository and submit pull requests. Please ensure your code adheres to our coding standards.
+
+## Contact
+Feel free to contact me on:
+
 
