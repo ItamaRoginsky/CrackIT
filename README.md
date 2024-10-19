@@ -1,6 +1,5 @@
 # CrackIT
 
-![CrackIT Logo](path/to/logo.png) <!-- Optional: Add a logo or image -->
 
 CrackIT is an advanced password cracking tool designed for cybersecurity professionals and enthusiasts. It leverages powerful algorithms to generate and test password combinations efficiently, aiming to uncover weak passwords in various systems.
 
