@@ -16,23 +16,11 @@ Clone the repository:
 ```bash
 git clone https://github.com/ItamaRoginsky/CrackIT.git
 cd CrackIT
-Install the required dependencies:
+```
+To install the required Python packages for this project, run the following command:
 
-bash
-
-Copy
+```bash
 pip install -r requirements.txt
-Usage
-To run the tool, execute:
-
-bash
-
-Copy
-python crackit.py
-Contributing
-Feel free to fork the repository and submit pull requests. Please ensure your code adheres to our coding standards.
-
-License
-This project is licensed under the MIT License.
+```
 
 
