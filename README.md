@@ -40,5 +40,8 @@ Feel free to fork the repository and submit pull requests. Please ensure your co
 
 ## Contact
 Feel free to contact me on:
+Instagram: _itamar_roginsky
+Email: Itamar.roginsky@gmail.com
 
-
+## License
+CrackIT is licensed under the MIT License. See LICENSE for more details.
