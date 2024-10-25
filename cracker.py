@@ -25,23 +25,39 @@ def identify_hash_type(hash_value):
 
 def hash_identifier():
     """Function to prompt user for a hash and identify its type."""
-    user_hash = input("Enter the hash value to identify 🡆 ").strip()
-    hash_type = identify_hash_type(user_hash)
-    print(f"The identified hash type is: {hash_type}")
+    while True:
+        user_hash = input("Enter the hash value to identify -> ").strip()
+        if user_hash:
+            hash_type = identify_hash_type(user_hash)
+            if hash_type != "Unknown hash type":
+                print(f"The identified hash type is: {hash_type}")
+            else:
+                print("Invalid hash value or unsupported hash type. Please try again.")
+        else:
+            print("Hash input cannot be empty. Please try again.")
+        retry = input("Do you want to try another hash? (y/n) -> ").strip().lower()
+        if retry != 'y':
+            break
 
 def generate_custom_wordlist():
     """Function to call the WLgenerator.py script."""
     # Call the WLgenerator.py script using subprocess
-    subprocess.run(["python", "WLgenerator.py"])
+    try:
+        subprocess.run(["python", "WLgenerator.py"], check=True)
+    except subprocess.CalledProcessError as e:
+        print(f"Error occurred while generating wordlist: {e}")
 
 # Function to crack the password
-def pass_crack(hashed_pass, hash_type, wordlist_path="\\Craker\\rockyou.txt"):
+def pass_crack(hashed_pass, hash_type, wordlist_path="rockyou.txt"):
     os.system('cls' if os.name == 'nt' else 'clear')
+
     if not os.path.isfile(wordlist_path):
         print(f"Wordlist file '{wordlist_path}' not found.")
         return None
 
     print(f"Trying to crack {hashed_pass} using {hash_type} hash...")
+
+    # Supported hash methods
     hash_methods = {
         'md5': hashlib.md5,
         'sha1': hashlib.sha1,
@@ -53,12 +69,12 @@ def pass_crack(hashed_pass, hash_type, wordlist_path="\\Craker\\rockyou.txt"):
         'blake2s': hashlib.blake2s
     }
 
-    print(f"Using wordlist {wordlist_path}")
-
     hash_method = hash_methods.get(hash_type)
     if hash_method is None:
         print("Unsupported hash type.")
         return None
+
+    print(f"Using wordlist: {wordlist_path}")
 
     with open(wordlist_path, 'r', encoding='utf-8', errors='ignore') as f:
         passwords = [password.strip() for password in f]
@@ -79,25 +95,47 @@ def main():
     os.system('cls' if os.name == 'nt' else 'clear')
     
     # Ask if the user wants to identify a hash
-    identify_hash = input("Do you want to identify a hash? (y/n) 🡆 ").strip().lower()
+    identify_hash = input("Do you want to identify a hash? (y/n) -> ").strip().lower()
     if identify_hash == 'y':
         hash_identifier()
-    input("\n\nPress Enter to continue...")
-    os.system('cls' if os.name == 'nt' else 'clear')
     
+    input("\nPress Enter to continue...")
+
+    os.system('cls' if os.name == 'nt' else 'clear')
+
     # Ask if the user wants to create a custom wordlist
-    create_custom_wordlist_choice = input("Do you want to create a custom wordlist? (y/n) 🡆 ").strip().lower()
+    create_custom_wordlist_choice = input("Do you want to create a custom wordlist? (y/n) -> ").strip().lower()
     if create_custom_wordlist_choice == 'y':
         generate_custom_wordlist()
-    input("\n\nPress Enter to continue...")
-    os.system('cls' if os.name == 'nt' else 'clear')
+    input("\nPress Enter to continue...")
     
-    hashed_password = input("Enter the hashed password 🡆 ")
-    hash_type = input("Enter the hash type 🡆 ")
+    os.system('cls' if os.name == 'nt' else 'clear')
 
-    custom_wordlist = input("Do you want to upload a custom wordlist? (y/n) 🡆 ").strip().lower()
+    # Get the hashed password from the user
+    while True:
+        hashed_password = input("Enter the hashed password -> ").strip()
+        if hashed_password:
+            break
+        else:
+            print("Hashed password cannot be empty. Please try again.")
+
+    # Get the hash type from the user
+    while True:
+        hash_type = input("Enter the hash type -> ").strip().lower()
+        if hash_type in hash_types:
+            break
+        else:
+            print(f"Unsupported or unknown hash type '{hash_type}'. Please enter a valid hash type (e.g., md5, sha1, sha256).")
+
+    # Ask if the user wants to provide a custom wordlist
+    custom_wordlist = input("Do you want to upload a custom wordlist? (y/n) -> ").strip().lower()
     if custom_wordlist == 'y':
-        wordlist_path = input("Enter the path to the custom wordlist 🡆 ")
+        while True:
+            wordlist_path = input("Enter the path to the custom wordlist -> ").strip()
+            if os.path.isfile(wordlist_path):
+                break
+            else:
+                print("Invalid file path. Please enter a valid path to a wordlist.")
     else:
         wordlist_path = os.path.join(os.path.dirname(__file__), 'rockyou.txt')
 
