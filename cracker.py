@@ -99,7 +99,7 @@ def main():
     if custom_wordlist == 'y':
         wordlist_path = input("Enter the path to the custom wordlist 🡆 ")
     else:
-        wordlist_path = "\\Craker\\rockyou.txt"
+        wordlist_path = os.path.join(os.path.dirname(__file__), 'rockyou.txt')
 
     pass_crack(hashed_password, hash_type, wordlist_path)
 
