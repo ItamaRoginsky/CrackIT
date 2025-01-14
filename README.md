@@ -20,7 +20,7 @@ cd CrackIT
 To install the required Python packages for this project, run the following command:
 
 ```bash
-pip install -r requirements.txt
+python requirements.py
 ```
 Unzip rockyou.txt.gz:
 
