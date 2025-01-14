@@ -4,7 +4,6 @@ import time
 import re
 import subprocess
 
-# Define supported hash types
 hash_types = {
     'md5': {'length': 32, 'pattern': r'^[a-fA-F0-9]{32}$'},
     'sha1': {'length': 40, 'pattern': r'^[a-fA-F0-9]{40}$'},
